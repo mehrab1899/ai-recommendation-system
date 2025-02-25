@@ -1,14 +1,14 @@
 {
     "builds": [
       {
-        "src": "manage.py",
+        "src": "ai_career_recom_system/wsgi.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "manage.py"
+        "dest": "ai_career_recom_system/wsgi.py"
       }
     ]
   }
