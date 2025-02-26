@@ -76,11 +76,14 @@ WSGI_APPLICATION = 'ai_career_recom_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Your database name
+        'USER': 'postgres.jusihtknibwejapqevdb',  # Your database username
+        'PASSWORD': 'Josegauche18!',  # Your database password
+        'HOST': 'aws-0-eu-west-1.pooler.supabase.com',  # The database host without the protocol part
+        'PORT': '6543',  # Default PostgreSQL port
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
