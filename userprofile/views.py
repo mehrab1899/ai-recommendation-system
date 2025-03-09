@@ -18,7 +18,7 @@ class ProfileView(APIView):
         try:
             payload = jwt.decode(token, "secret", algorithms=["HS256"])
         except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed("Unauthenticated")
+            raise AuthenticationFailed("Token Expired")
         return payload["id"]
 
     def get(self, request):
