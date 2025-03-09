@@ -142,3 +142,10 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 ALLOWED_HOSTS = ['.vercel.app','localhost', '127.0.0.1']
+
+CSRF_COOKIE_SECURE = True  # Use True in production (HTTPS)
+SESSION_COOKIE_SECURE = True  # Use True in production
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'None'  # Important for cross-origin requests
+SESSION_COOKIE_SAMESITE = 'None'
