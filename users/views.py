@@ -6,13 +6,16 @@ from rest_framework.exceptions import AuthenticationFailed
 import jwt,datetime
 from users.serializers import UserSerializer
 from .models import User
+from userprofile.models import Profile
 # Create your views here.
 
 class RegisterView(APIView):
     def post(self,request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            user = serializer.save()
+            print(f"User Created: {user}")
+          
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -33,7 +36,7 @@ class LoginView(APIView):
         
         payload = {
             'id':user.id,
-            'exp':datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+            'exp':datetime.datetime.utcnow() + datetime.timedelta(days=7),
             'iat':datetime.datetime.utcnow()    
         }
 
